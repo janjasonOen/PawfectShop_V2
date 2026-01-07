@@ -30,7 +30,7 @@
                     <i class="bi bi-receipt fs-1"></i>
                     <div class="fs-5 fw-semibold">Belum ada pesanan</div>
                     <div class="text-muted">Ayo mulai belanja atau booking service.</div>
-                    <a class="btn btn-accent mt-2" href="{{ route('catalog', ['type' => 'product']) }}">Ke Katalog</a>
+                    <a class="btn btn-primary mt-2" href="{{ route('catalog', ['type' => 'product']) }}">Ke Katalog</a>
                 </div>
             </div>
         </div>

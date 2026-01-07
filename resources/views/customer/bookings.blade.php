@@ -30,7 +30,7 @@
                     <i class="bi bi-calendar2-week fs-1"></i>
                     <div class="fs-5 fw-semibold">Belum ada booking</div>
                     <div class="text-muted">Pilih service dan tentukan jadwal di halaman detail service.</div>
-                    <a class="btn btn-accent mt-2" href="{{ route('catalog', ['type' => 'service']) }}">Ke Services</a>
+                    <a class="btn btn-primary mt-2" href="{{ route('catalog', ['type' => 'service']) }}">Ke Services</a>
                 </div>
             </div>
         </div>

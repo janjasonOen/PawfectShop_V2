@@ -21,7 +21,7 @@
                     <div class="fs-1">🛒</div>
                     <div class="fs-5 fw-semibold">Keranjang masih kosong</div>
                     <div class="text-muted">Yuk pilih produk favoritmu dulu.</div>
-                    <a class="btn btn-accent mt-2" href="{{ route('catalog', ['type' => 'product']) }}">Belanja Sekarang</a>
+                    <a class="btn btn-primary mt-2" href="{{ route('catalog', ['type' => 'product']) }}">Belanja Sekarang</a>
                 </div>
             </div>
         </div>
@@ -134,7 +134,7 @@
                             <hr>
 
                             <div class="d-grid gap-2">
-                                <a class="btn btn-accent" href="{{ route('checkout') }}">Checkout</a>
+                                <a class="btn btn-primary" href="{{ route('checkout') }}">Checkout</a>
                                 <small class="text-muted">Pembayaran belum terhubung payment gateway.</small>
                             </div>
                         </div>

@@ -186,16 +186,15 @@
             </div>
         </div>
 
-        <div id="checkoutData"
-             data-addresses="{{ e(json_encode($addresses, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)) }}"
-             data-show-auth="{{ $isCustomerLoggedIn ? '0' : '1' }}"></div>
+        <div id="checkoutData" data-show-auth="{{ $isCustomerLoggedIn ? '0' : '1' }}"></div>
+        <script type="application/json" id="addressesJson">{!! json_encode($addresses, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
 
         <script>
             (function () {
                 const dataEl = document.getElementById('checkoutData');
-                const addressesJson = dataEl ? (dataEl.dataset.addresses || '[]') : '[]';
+                const addressesJsonEl = document.getElementById('addressesJson');
                 let addresses = [];
-                try { addresses = JSON.parse(addressesJson); } catch (e) { addresses = []; }
+                try { addresses = JSON.parse(addressesJsonEl?.textContent || '[]'); } catch (e) { addresses = []; }
                 const shouldShowAuthModal = dataEl ? (dataEl.dataset.showAuth === '1') : false;
                 const select = document.getElementById('addressSelect');
                 const preview = document.getElementById('addressPreview');
@@ -206,12 +205,17 @@
                     const id = parseInt(select.value || '0', 10);
                     hiddenId.value = id;
                     const found = addresses.find(a => parseInt(a.id, 10) === id);
-                    preview.value = (found && found.address) ? found.address : '';
+                    if (found && found.address) {
+                        preview.value = found.address;
+                    }
                 }
 
                 if (select) {
                     select.addEventListener('change', sync);
-                    sync();
+                    // Only override prefill if addresses are parsed
+                    if (addresses.length > 0) {
+                        sync();
+                    }
                 }
 
                 if (shouldShowAuthModal) {
