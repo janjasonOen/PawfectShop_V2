@@ -28,6 +28,6 @@
         </div>
     </div>
 
-    <p class="text-center text-muted mt-3">© {{ date('Y') }} Sistem Informasi Petshop</p>
+    <p class="text-center text-muted mt-3">© {{ date('Y') }} PawfectShop</p>
 </div>
 @endsection

@@ -60,8 +60,7 @@
 
         <hr class="my-4">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-            <div class="text-muted small">© {{ date('Y') }} Sistem Informasi Petshop</div>
-            <div class="text-muted small">Dibuat untuk kebutuhan Petshop</div>
+            <div class="text-muted small">© {{ date('Y') }} PawfectShop</div>
         </div>
     </div>
 </footer>
