@@ -137,10 +137,13 @@ class CartController extends Controller
                 $qty = 1;
             }
 
-            $existing = $cart[$itemId] ?? 0;
-            $existingQty = is_array($existing) ? (int) ($existing['qty'] ?? 1) : (int) $existing;
-            if ($existingQty < 1) {
-                $existingQty = 1;
+            $existingQty = 0;
+            if (array_key_exists($itemId, $cart)) {
+                $existing = $cart[$itemId];
+                $existingQty = is_array($existing) ? (int) ($existing['qty'] ?? 0) : (int) $existing;
+                if ($existingQty < 0) {
+                    $existingQty = 0;
+                }
             }
 
             $cart[$itemId] = $existingQty + $qty;
