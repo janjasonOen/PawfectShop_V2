@@ -58,6 +58,7 @@
         </div>
 
         <div class="col-md-10 p-4">
+            @include('partials.flash-toast')
             @yield('content')
         </div>
     </div>

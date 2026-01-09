@@ -43,7 +43,7 @@ class CustomerAddressController extends Controller
                     return redirect()->route('customer.addresses', ['error' => 'Gagal set alamat utama: ' . $e->getMessage()]);
                 }
             }
-            return redirect()->route('customer.addresses');
+            return redirect()->route('customer.addresses')->with('success', 'Alamat utama berhasil diperbarui.');
         }
 
         if ($request->query('deactivate')) {
@@ -81,7 +81,7 @@ class CustomerAddressController extends Controller
                     return redirect()->route('customer.addresses', ['error' => 'Gagal menghapus alamat: ' . $e->getMessage()]);
                 }
             }
-            return redirect()->route('customer.addresses');
+            return redirect()->route('customer.addresses')->with('success', 'Alamat berhasil dihapus.');
         }
 
         // Add new address
@@ -124,7 +124,7 @@ class CustomerAddressController extends Controller
                     }
                 });
 
-                return redirect()->route('customer.addresses');
+                return redirect()->route('customer.addresses')->with('success', 'Alamat berhasil disimpan.');
             } catch (\Throwable $e) {
                 return redirect()->route('customer.addresses', ['error' => 'Gagal menyimpan alamat: ' . $e->getMessage()]);
             }

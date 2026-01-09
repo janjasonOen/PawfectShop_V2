@@ -66,3 +66,24 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+(function () {
+    function showFlashToasts() {
+        if (typeof bootstrap === 'undefined' || !bootstrap.Toast) return;
+        document.querySelectorAll('.toast[data-autoshow="1"]').forEach(function (el) {
+            try {
+                bootstrap.Toast.getOrCreateInstance(el).show();
+            } catch (e) {
+                // ignore
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', showFlashToasts);
+    } else {
+        showFlashToasts();
+    }
+})();
+</script>

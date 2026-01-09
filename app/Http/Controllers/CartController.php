@@ -129,7 +129,7 @@ class CartController extends Controller
 
                 $cart[$itemId] = ['qty' => 1, 'slot_id' => $slotId];
                 $request->session()->put('cart', $cart);
-                return redirect()->route('cart');
+                return redirect()->route('cart')->with('success', 'Layanan berhasil ditambahkan ke keranjang.');
             }
 
             $qty = (int) ($request->input('qty') ?? $request->query('qty', 1));
@@ -148,7 +148,7 @@ class CartController extends Controller
 
             $cart[$itemId] = $existingQty + $qty;
             $request->session()->put('cart', $cart);
-            return redirect()->route('cart');
+            return redirect()->route('cart')->with('success', 'Produk berhasil ditambahkan ke keranjang.');
         }
 
         if ($action === 'update') {
@@ -178,7 +178,7 @@ class CartController extends Controller
             }
 
             $request->session()->put('cart', $cart);
-            return redirect()->route('cart');
+            return redirect()->route('cart')->with('success', 'Keranjang berhasil diperbarui.');
         }
 
         if ($action === 'remove') {
@@ -187,12 +187,12 @@ class CartController extends Controller
                 unset($cart[$itemId]);
             }
             $request->session()->put('cart', $cart);
-            return redirect()->route('cart');
+            return redirect()->route('cart')->with('success', 'Item berhasil dihapus dari keranjang.');
         }
 
         if ($action === 'clear') {
             $request->session()->put('cart', []);
-            return redirect()->route('cart');
+            return redirect()->route('cart')->with('success', 'Keranjang berhasil dikosongkan.');
         }
 
         return $redirectTo();
