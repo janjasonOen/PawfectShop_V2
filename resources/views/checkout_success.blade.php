@@ -11,6 +11,14 @@
 
 @section('content')
 <div class="container py-4">
+    <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('checkout') }}">Checkout</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Success</li>
+        </ol>
+    </nav>
+
     <h2 class="mb-4">Checkout Success</h2>
 
     @if($uploaded)

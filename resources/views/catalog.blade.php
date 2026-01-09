@@ -17,6 +17,14 @@
 
 @section('content')
 <div class="container-fluid px-3 px-lg-5 mt-4">
+    <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('catalog', ['type' => $type]) }}">Catalog</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $type === 'product' ? 'Products' : 'Services' }}</li>
+        </ol>
+    </nav>
+
     <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
         <div>
             <h3 class="section-title mb-1">

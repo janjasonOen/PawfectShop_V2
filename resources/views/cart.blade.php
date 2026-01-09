@@ -12,6 +12,13 @@
 
 @section('content')
 <div class="container mt-4">
+    <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cart</li>
+        </ol>
+    </nav>
+
     <h3 class="section-title">Shopping Cart</h3>
 
     @if (count($normalizedCart) === 0)
